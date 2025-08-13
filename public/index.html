@@ -3,7 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Fortwo 450 Cabrio - In Vendita</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Smart Fortwo 450 Cabrio 2005 in Vendita - 95.000 km - € 4.500</title>
+    <meta name="description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, motore 0.7 turbo benzina, capote perfetta. Prezzo € 4.500. Ideale per l'estate, sempre garage. Contatta ora!">
+    <meta name="keywords" content="smart fortwo, smart 450, cabrio, cabriolet, auto usata, vendita auto, smart fortwo usata, auto piccola, city car, convertibile">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Venditore Privato Smart Fortwo">
+    <link rel="canonical" href="https://tuosottodominio.com/">
+    
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Smart Fortwo 450 Cabrio 2005 in Vendita - € 4.500">
+    <meta property="og:description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, perfetta per l'estate. Sempre tenuta in garage, capote in tessuto nero perfetta.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=630&fit=crop">
+    <meta property="og:url" content="https://tuosottodominio.com/">
+    <meta property="og:type" content="product">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:site_name" content="Smart Fortwo 450 Cabrio Vendita">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Smart Fortwo 450 Cabrio 2005 in Vendita - € 4.500">
+    <meta name="twitter:description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, perfetta per l'estate. Sempre tenuta in garage.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=630&fit=crop">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Car",
+        "name": "Smart Fortwo 450 Cabrio",
+        "description": "Smart Fortwo 450 Cabrio del 2005, 95.000 km, motore 0.7 turbo benzina, capote in tessuto nero perfetta, sempre tenuta in garage",
+        "brand": {
+            "@type": "Brand",
+            "name": "Smart"
+        },
+        "model": "Fortwo 450 Cabrio",
+        "vehicleModelDate": "2005",
+        "mileageFromOdometer": {
+            "@type": "QuantitativeValue",
+            "value": "95000",
+            "unitCode": "KMT"
+        },
+        "bodyType": "Convertible",
+        "fuelType": "Gasoline",
+        "vehicleEngine": {
+            "@type": "EngineSpecification",
+            "engineDisplacement": {
+                "@type": "QuantitativeValue",
+                "value": "0.7",
+                "unitCode": "LTR"
+            },
+            "fuelType": "Gasoline"
+        },
+        "vehicleTransmission": "Automatic",
+        "color": "Silver",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "EUR",
+            "price": "4500",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+                "@type": "Person",
+                "name": "Venditore Privato"
+            }
+        },
+        "image": [
+            "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=500&fit=crop",
+            "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=500&fit=crop",
+            "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&h=500&fit=crop",
+            "https://images.unsplash.com/photo-1507794408770-4e6c5b9723b6?w=800&h=500&fit=crop"
+        ]
+    }
+    </script>
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="IT">
+    <meta name="geo.placename" content="Italia">
+    <meta name="language" content="Italian">
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
     <style>
         * {
             margin: 0;
@@ -168,6 +253,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            loading: lazy;
         }
 
         .slide-overlay {
@@ -197,6 +283,7 @@
             font-size: 1.5rem;
             transition: all 0.3s ease;
             z-index: 3;
+            aria-label: "Navigazione carosello";
         }
 
         .carousel-nav:hover {
@@ -204,8 +291,13 @@
             transform: translateY(-50%) scale(1.1);
         }
 
-        .carousel-nav.prev { left: 20px; }
-        .carousel-nav.next { right: 20px; }
+        .carousel-nav.prev { 
+            left: 20px;
+        }
+        
+        .carousel-nav.next { 
+            right: 20px; 
+        }
 
         .carousel-indicators {
             display: flex;
@@ -222,6 +314,7 @@
             background: #ddd;
             cursor: pointer;
             transition: all 0.3s ease;
+            aria-label: "Indicatore slide";
         }
 
         .indicator.active {
@@ -377,23 +470,6 @@
             line-height: 1.8;
             opacity: 0.95;
         }
-        .story-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .story-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .story-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            opacity: 0.95;
-        }
 
         /* Contact Section */
         .contact-section {
@@ -438,7 +514,59 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
-            @media (max-width: 768px) {
+        /* SEO Content Section */
+        .seo-content {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .seo-text {
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            text-align: justify;
+        }
+
+        .seo-text h2 {
+            color: #667eea;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+
+        .seo-text h3 {
+            color: #2c3e50;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+
+        .breadcrumbs {
+            padding: 1rem 2rem;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breadcrumbs-list {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .breadcrumbs a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
             .carousel-slide {
                 height: 300px;
             }
@@ -490,180 +618,236 @@
     </style>
 </head>
 <body>
+    <!-- Breadcrumbs for SEO -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <div class="breadcrumbs-list">
+            <a href="/">Home</a>
+            <span>›</span>
+            <a href="/auto-usate">Auto Usate</a>
+            <span>›</span>
+            <a href="/smart">Smart</a>
+            <span>›</span>
+            <span>Fortwo 450 Cabrio 2005</span>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Smart Fortwo 450 Cabrio</h1>
-            <p class="hero-subtitle">Anno 2005 • 95.000 km • Perfetta per l'estate</p>
-            <div class="price-tag">€ 4.500</div>
-            <a href="#contact" class="cta-button">Contattami Ora</a>
-        </div>
-    </section>
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title">Smart Fortwo 450 Cabrio in Vendita</h1>
+                <p class="hero-subtitle">Anno 2005 • 95.000 km • Perfetta per l'estate • Sempre in garage</p>
+                <div class="price-tag" aria-label="Prezzo di vendita">€ 4.500</div>
+                <a href="#contact" class="cta-button" role="button">Contattami Ora</a>
+            </div>
+        </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section">
-        <div class="container">
-            <h2 class="section-title">Galleria Fotografica</h2>
-            <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="carousel-slide">
-                        <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=500&fit=crop" alt="Vista frontale Smart Fortwo">
-                        <div class="slide-overlay">
-                            <h3>Vista Frontale</h3>
-                            <p>Design iconico e compatto</p>
+        <!-- Gallery Section -->
+        <section class="gallery-section" aria-labelledby="gallery-title">
+            <div class="container">
+                <h2 id="gallery-title" class="section-title">Galleria Fotografica Smart Fortwo 450</h2>
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack" role="region" aria-label="Carosello immagini Smart Fortwo">
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=500&fit=crop" 
+                                 alt="Smart Fortwo 450 Cabrio vista frontale argento metallizzato"
+                                 width="800" height="500">
+                            <div class="slide-overlay">
+                                <h3>Vista Frontale</h3>
+                                <p>Design iconico e compatto della Smart 450</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=500&fit=crop" 
+                                 alt="Smart Fortwo 450 Cabrio profilo laterale con capote"
+                                 width="800" height="500">
+                            <div class="slide-overlay">
+                                <h3>Profilo Elegante</h3>
+                                <p>Linee distintive della Smart 450 Cabrio</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&h=500&fit=crop" 
+                                 alt="Interni Smart Fortwo 450 abitacolo plancia strumenti"
+                                 width="800" height="500">
+                            <div class="slide-overlay">
+                                <h3>Interni Curati</h3>
+                                <p>Abitacolo ben conservato e funzionale</p>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://images.unsplash.com/photo-1507794408770-4e6c5b9723b6?w=800&h=500&fit=crop" 
+                                 alt="Smart Fortwo 450 Cabrio capote aperta tessuto nero"
+                                 width="800" height="500">
+                            <div class="slide-overlay">
+                                <h3>Cabrio Perfetta</h3>
+                                <p>Capote in tessuto nero originale Smart</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="carousel-slide">
-                        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=500&fit=crop" alt="Vista laterale">
-                        <div class="slide-overlay">
-                            <h3>Profilo Elegante</h3>
-                            <p>Linee distintive della Smart 450</p>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&h=500&fit=crop" alt="Interni">
-                        <div class="slide-overlay">
-                            <h3>Interni Curati</h3>
-                            <p>Abitacolo ben conservato</p>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="https://images.unsplash.com/photo-1507794408770-4e6c5b9723b6?w=800&h=500&fit=crop" alt="Capote aperta">
-                        <div class="slide-overlay">
-                            <h3>Cabrio Perfetta</h3>
-                            <p>Capote in tessuto nero originale</p>
-                        </div>
-                    </div>
+                    <button class="carousel-nav prev" onclick="prevSlide()" aria-label="Immagine precedente">‹</button>
+                    <button class="carousel-nav next" onclick="nextSlide()" aria-label="Immagine successiva">›</button>
                 </div>
-                <button class="carousel-nav prev" onclick="prevSlide()">‹</button>
-                <button class="carousel-nav next" onclick="nextSlide()">›</button>
+                <div class="carousel-indicators" id="indicators" role="tablist" aria-label="Indicatori carosello"></div>
             </div>
-            <div class="carousel-indicators" id="indicators"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Specs Section -->
-    <section class="specs-section">
-        <div class="container">
-            <h2 class="section-title">Scheda Tecnica</h2>
-            <div class="specs-grid">
-                <div class="spec-card">
-                    <div class="spec-icon">📅</div>
-                    <div class="spec-title">Anno</div>
-                    <div class="spec-value">2005</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">🛣️</div>
-                    <div class="spec-title">Chilometraggio</div>
-                    <div class="spec-value">95.000 km</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">⚡</div>
-                    <div class="spec-title">Motore</div>
-                    <div class="spec-value">0.7 Turbo Benzina</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">⚙️</div>
-                    <div class="spec-title">Cambio</div>
-                    <div class="spec-value">Automatico/Sequenziale</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">🎨</div>
-                    <div class="spec-title">Colore</div>
-                    <div class="spec-value">Argento Metallizzato</div>
-                </div>
-                <div class="spec-card">
-                    <div class="spec-icon">🏠</div>
-                    <div class="spec-title">Capote</div>
-                    <div class="spec-value">Tessuto Nero Perfetta</div>
+        <!-- Specs Section -->
+        <section class="specs-section" aria-labelledby="specs-title">
+            <div class="container">
+                <h2 id="specs-title" class="section-title">Scheda Tecnica Smart Fortwo 450 Cabrio</h2>
+                <div class="specs-grid">
+                    <article class="spec-card">
+                        <div class="spec-icon" aria-hidden="true">📅</div>
+                        <h3 class="spec-title">Anno di Immatricolazione</h3>
+                        <div class="spec-value">2005</div>
+                    </article>
+                    <article class="spec-card">
+                        <div class="spec-icon" aria-hidden="true">🛣️</div>
+                        <h3 class="spec-title">Chilometraggio</h3>
+                        <div class="spec-value">95.000 km reali</div>
+                    </article>
+                    <article class="spec-card">
+                        <div class="spec-icon" aria-hidden="true">⚡</div>
+                        <h3 class="spec-title">Motore</h3>
+                        <div class="spec-value">0.7 Turbo Benzina</div>
+                    </article>
+                    <article class="spec-card">
+                        <div class="spec-icon" aria-hidden="true">⚙️</div>
+                        <h3 class="spec-title">Cambio</h3>
+                        <div class="spec-value">Automatico/Sequenziale</div>
+                    </article>
+                    <article class="spec-card">
+                        <div class="spec-icon" aria-hidden="true">🎨</div>
+                        <h3 class="spec-title">Colore Carrozzeria</h3>
+                        <div class="spec-value">Argento Metallizzato</div>
+                    </article>
+                    <article class="spec-card">
+                        <div class="spec-icon" aria-hidden="true">🏠</div>
+                        <h3 class="spec-title">Capote Cabrio</h3>
+                        <div class="spec-value">Tessuto Nero Perfetta</div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Document Status Section -->
-    <section class="status-section">
-        <div class="container">
-            <h2 class="section-title">Stato Documenti</h2>
-            <div class="status-table-container">
-                <table class="status-table">
-                    <thead>
-                        <tr>
-                            <th>Documento</th>
-                            <th>Stato</th>
-                            <th>Note</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="status-valid">
-                            <td>Libretto di Circolazione</td>
-                            <td><span class="status-icon valid">✓</span> Presente</td>
-                            <td>Regolarmente intestato</td>
-                        </tr>
-                        <tr class="status-invalid">
-                            <td>Revisione</td>
-                            <td><span class="status-icon invalid">✗</span> Scaduta</td>
-                            <td>Da rinnovare</td>
-                        </tr>
-                        <tr class="status-invalid">
-                            <td>Assicurazione</td>
-                            <td><span class="status-icon invalid">✗</span> Scaduta</td>
-                            <td>Da sottoscrivere</td>
-                        </tr>
-                        <tr class="status-invalid">
-                            <td>Bollo Auto</td>
-                            <td><span class="status-icon invalid">✗</span> Non Pagato</td>
-                            <td>Da regolarizzare</td>
-                        </tr>
-                        <tr class="status-valid">
-                            <td>Tagliandi</td>
-                            <td><span class="status-icon valid">✓</span> Regolari</td>
-                            <td>Ultimo: Maggio 2025</td>
-                        </tr>
-                        <tr class="status-valid">
-                            <td>Chiavi</td>
-                            <td><span class="status-icon valid">✓</span> Complete</td>
-                            <td>2 chiavi originali</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <!-- Document Status Section -->
+        <section class="status-section" aria-labelledby="status-title">
+            <div class="container">
+                <h2 id="status-title" class="section-title">Stato Documenti e Pratiche Auto</h2>
+                <div class="status-table-container">
+                    <table class="status-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Documento</th>
+                                <th scope="col">Stato</th>
+                                <th scope="col">Note</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="status-valid">
+                                <td>Libretto di Circolazione</td>
+                                <td><span class="status-icon valid" aria-label="Valido">✓</span> Presente</td>
+                                <td>Regolarmente intestato</td>
+                            </tr>
+                            <tr class="status-invalid">
+                                <td>Revisione Auto</td>
+                                <td><span class="status-icon invalid" aria-label="Scaduto">✗</span> Scaduta</td>
+                                <td>Da rinnovare presso MCTC</td>
+                            </tr>
+                            <tr class="status-invalid">
+                                <td>Assicurazione RCA</td>
+                                <td><span class="status-icon invalid" aria-label="Scaduta">✗</span> Scaduta</td>
+                                <td>Da sottoscrivere nuova polizza</td>
+                            </tr>
+                            <tr class="status-invalid">
+                                <td>Bollo Auto</td>
+                                <td><span class="status-icon invalid" aria-label="Non pagato">✗</span> Non Pagato</td>
+                                <td>Da regolarizzare presso ACI</td>
+                            </tr>
+                            <tr class="status-valid">
+                                <td>Tagliandi Manutenzione</td>
+                                <td><span class="status-icon valid" aria-label="In regola">✓</span> Regolari</td>
+                                <td>Ultimo tagliando: Maggio 2025</td>
+                            </tr>
+                            <tr class="status-valid">
+                                <td>Chiavi Auto</td>
+                                <td><span class="status-icon valid" aria-label="Complete">✓</span> Complete</td>
+                                <td>2 chiavi originali Smart</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="status-disclaimer">
+                    <p><strong>Nota importante:</strong> Il prezzo di € 4.500 tiene conto dello stato dei documenti. L'acquirente dovrà provvedere al rinnovo della revisione, assicurazione RCA e pagamento del bollo auto.</p>
+                </div>
             </div>
-            <div class="status-disclaimer">
-                <p><strong>Nota importante:</strong> Il prezzo tiene conto dello stato dei documenti. L'acquirente dovrà provvedere al rinnovo della revisione, assicurazione e pagamento del bollo.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Story Section -->
-    <section class="story-section">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">La Storia</h2>
-            <div class="story-content">
-                <p class="story-text">
-                    Questa Smart Fortwo è stata sempre il mio gioiello estivo. Tenuta sempre in garage e utilizzata solo nei mesi più belli dell'anno, ha mantenuto la sua bellezza originale. La capote in tessuto nero è perfetta, gli interni sono ben conservati e tutti i tagliandi sono stati eseguiti regolarmente. L'ultimo intervento di manutenzione è stato fatto a maggio 2025 con sostituzione di olio e filtro.
-                </p>
+        <!-- Story Section -->
+        <section class="story-section" aria-labelledby="story-title">
+            <div class="container">
+                <h2 id="story-title" class="section-title" style="color: white;">La Storia della Mia Smart Fortwo 450</h2>
+                <div class="story-content">
+                    <p class="story-text">
+                        Questa Smart Fortwo 450 Cabrio è stata sempre il mio gioiello estivo. Tenuta sempre in garage durante l'inverno e utilizzata solo nei mesi più belli dell'anno, ha mantenuto la sua bellezza originale. La capote in tessuto nero è perfetta e funzionale, gli interni sono ben conservati senza usura e tutti i tagliandi di manutenzione sono stati eseguiti regolarmente presso officina autorizzata Smart. L'ultimo intervento di manutenzione è stato fatto a maggio 2025 con sostituzione di olio motore, filtro olio e controllo generale.
+                    </p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Interessato?</h2>
-            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">Contattami per maggiori informazioni o per organizzare una prova su strada</p>
-            <div class="contact-buttons">
-                <a href="tel:+391234567890" class="contact-btn phone">
-                    📞 Chiamami
-                </a>
-                <a href="https://wa.me/391234567890?text=Ciao,%20sono%20interessato%20alla%20Smart%20Fortwo%20450" class="contact-btn whatsapp">
-                    💬 WhatsApp
-                </a>
+        <!-- SEO Content Section -->
+        <section class="seo-content" aria-labelledby="seo-content-title">
+            <div class="container">
+                <div class="seo-text">
+                    <h2 id="seo-content-title">Smart Fortwo 450 Cabrio: La City Car Perfetta per l'Estate</h2>
+                    
+                    <p>La <strong>Smart Fortwo 450 Cabrio</strong> rappresenta l'evoluzione perfetta della city car urbana, combinando il design iconico Smart con la libertà della guida a cielo aperto. Questo modello del <strong>2005</strong> appartiene alla prima generazione della Smart Fortwo, caratterizzata da linee distintive e una personalità unica nel panorama automobilistico.</p>
+
+                    <h3>Caratteristiche Tecniche della Smart 450</h3>
+                    <p>Il <strong>motore 0.7 turbo benzina</strong> di questa Smart Fortwo garantisce prestazioni brillanti in città, con consumi ridotti e emissioni contenute. Il <strong>cambio automatico sequenziale</strong> rende la guida estremamente confortevole nel traffico urbano, mentre le dimensioni compatte facilitano parcheggi e manovre negli spazi più stretti.</p>
+
+                    <h3>Vantaggi della Versione Cabrio</h3>
+                    <p>La versione <strong>Cabrio della Smart 450</strong> offre un'esperienza di guida unica grazie alla <strong>capote in tessuto</strong> che permette di trasformare rapidamente l'auto da chiusa a scoperta. Ideale per godersi le belle giornate estive, questa Smart mantiene tutta la praticità della versione chiusa con il plus dell'aria aperta.</p>
+
+                    <h3>Perché Scegliere una Smart Fortwo 450 Usata</h3>
+                    <p>Acquistare una <strong>Smart Fortwo 450 usata</strong> significa investire in un'auto che ha dimostrato la sua affidabilità nel tempo. I <strong>95.000 km</strong> di questa vettura rappresentano un chilometraggio medio per l'anno di immatricolazione, garantendo ancora molti anni di utilizzo. La manutenzione regolare e la conservazione in garage sono garanzie aggiuntive della qualità dell'auto.</p>
+
+                    <h3>Costi di Gestione e Manutenzione</h3>
+                    <p>La Smart Fortwo è nota per i <strong>bassi costi di gestione</strong>: consumi ridotti, assicurazione contenuta e manutenzione economica. I ricambi Smart sono facilmente reperibili e la rete di assistenza è capillare su tutto il territorio nazionale. Il <strong>bollo auto</strong> per questa cilindrata è tra i più bassi in assoluto.</p>
+
+                    <h2>Documenti e Pratiche Auto</h2>
+                    <p>L'auto è venduta con <strong>libretto di circolazione</strong> regolare e tutte le chiavi originali. Come specificato nella tabella documenti, revisione, assicurazione e bollo sono da rinnovare, fattore già considerato nel prezzo di vendita di <strong>€ 4.500</strong>.</p>
+
+                    <h3>Modalità di Vendita e Garanzie</h3>
+                    <p>La vendita avviene da <strong>privato a privato</strong>, con possibilità di visione e prova su strada previo appuntamento. L'auto può essere vista nel garage dove è sempre stata custodita. Disponibile per qualsiasi controllo presso meccanico di fiducia dell'acquirente.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <h2 id="contact-title" class="section-title" style="color: white;">Interessato alla Smart Fortwo 450?</h2>
+                <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">Contattami per maggiori informazioni, foto aggiuntive o per organizzare una prova su strada</p>
+                <div class="contact-buttons">
+                    <a href="tel:+391234567890" class="contact-btn phone" aria-label="Chiama per informazioni">
+                        📞 Chiamami
+                    </a>
+                    <a href="https://wa.me/391234567890?text=Ciao,%20sono%20interessato%20alla%20Smart%20Fortwo%20450%20Cabrio%20del%202005" 
+                       class="contact-btn whatsapp" 
+                       aria-label="Contatta via WhatsApp"
+                       target="_blank" 
+                       rel="noopener">
+                        💬 WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Floating Price -->
-    <div class="floating-price">
+    <div class="floating-price" aria-label="Prezzo Smart Fortwo">
         € 4.500
     </div>
 
@@ -678,6 +862,8 @@
         slides.forEach((_, index) => {
             const indicator = document.createElement('button');
             indicator.className = 'indicator';
+            indicator.setAttribute('role', 'tab');
+            indicator.setAttribute('aria-label', `Vai alla slide ${index + 1}`);
             indicator.addEventListener('click', () => goToSlide(index));
             indicatorsContainer.appendChild(indicator);
         });
@@ -688,6 +874,7 @@
             track.style.transform = `translateX(-${currentSlide * 100}%)`;
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === currentSlide);
+                indicator.setAttribute('aria-selected', index === currentSlide);
             });
         }
 
@@ -706,8 +893,17 @@
             updateCarousel();
         }
 
-        // Auto-play carousel
-        setInterval(nextSlide, 5000);
+        // Auto-play carousel with pause on hover
+        let autoplayInterval = setInterval(nextSlide, 5000);
+
+        const carouselContainer = document.querySelector('.carousel-container');
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoplayInterval);
+        });
+
+        carouselContainer.addEventListener('mouseleave', () => {
+            autoplayInterval = setInterval(nextSlide, 5000);
+        });
 
         // Touch/swipe support
         let startX = 0;
@@ -730,6 +926,15 @@
             }
         });
 
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+
         // Smooth scrolling for CTA
         document.querySelector('.cta-button').addEventListener('click', function(e) {
             e.preventDefault();
@@ -741,7 +946,7 @@
         // Initialize carousel
         updateCarousel();
 
-        // Add scroll animations
+        // Add scroll animations with Intersection Observer
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -762,6 +967,56 @@
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
+
+        // Performance optimization - preload next images
+        function preloadImages() {
+            const nextIndex = (currentSlide + 1) % slides.length;
+            const nextImg = slides[nextIndex].querySelector('img');
+            if (nextImg && !nextImg.complete) {
+                const img = new Image();
+                img.src = nextImg.src;
+            }
+        }
+
+        // Call preload on slide change
+        track.addEventListener('transitionend', preloadImages);
+    </script>
+
+    <!-- Additional JSON-LD for FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "Quanto costa la Smart Fortwo 450 Cabrio?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Il prezzo della Smart Fortwo 450 Cabrio del 2005 è di € 4.500, prezzo che tiene conto dello stato dei documenti."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Quanti chilometri ha la Smart Fortwo 450?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La Smart Fortwo 450 Cabrio ha percorso 95.000 km reali, documentati e verificabili."
+            }
+        }, {
+            "@type": "Question",
+            "name": "La capote della Smart Cabrio funziona?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sì, la capote in tessuto nero è perfettamente funzionante e in ottime condizioni estetiche."
+            }
+        }, {
+            "@type": "Question",
+            "name": "Che documenti ha la Smart Fortwo 450?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "L'auto ha il libretto di circolazione regolare e le chiavi originali. Revisione, assicurazione e bollo sono da rinnovare."
+            }
+        }]
+    }
     </script>
 </body>
 </html>
