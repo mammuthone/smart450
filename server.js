@@ -13,6 +13,12 @@ const SUBDOMAIN = "cagliari-smart-450"; // cambia il nome qui
 // Percorso assoluto della cartella
 const __dirname = path.resolve();
 
+// Configurazione certificati SSL
+const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/smart450cagliari.ichnusalab.it/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/smart450cagliari.ichnusalab.it/fullchain.pem')
+};
+
 // Middleware per loggare gli accessi
 app.use((req, res, next) => {
     const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
