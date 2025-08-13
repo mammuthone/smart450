@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>Smart Fortwo 450 Cabrio 2005 in Vendita - 95.000 km - € 4.500</title>
-    <meta name="description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, motore 0.7 turbo benzina, capote perfetta. Prezzo € 4.500. Ideale per l'estate, sempre garage. Contatta ora!">
-    <meta name="keywords" content="smart fortwo, smart 450, cabrio, cabriolet, auto usata, vendita auto, smart fortwo usata, auto piccola, city car, convertibile">
+    <title>Smart Fortwo 450 Cabrio 2005 in Vendita - 120.000 km - € 3.500</title>
+    <meta name="description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, motore 0.7 turbo benzina, capote perfetta. Prezzo € 4.500. A Quartu Sant'Elena (CA). Ideale per l'estate, sempre garage. Contatta ora!">
+    <meta name="keywords" content="smart fortwo, smart 450, cabrio, cabriolet, auto usata, vendita auto, smart fortwo usata, auto piccola, city car, convertibile, Quartu Sant'Elena, Cagliari, Sardegna, rivenditori auto, concessionari, auto per rivendita">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Venditore Privato Smart Fortwo">
-    <link rel="canonical" href="https://tuosottodominio.com/">
+    <link rel="canonical" href="https://smart450cagliari.ichnusalab.it/">
     
-    <!-- Open Graph Tags for Social Media -->
+    <!-- Geographic SEO -->
+    <meta name="geo.region" content="IT-CA">
+    <meta name="geo.placename" content="Quartu Sant'Elena, Sardegna">
+    <meta name="geo.position" content="39.2435;9.1808">
+    <meta name="ICBM" content="39.2435, 9.1808">
     <meta property="og:title" content="Smart Fortwo 450 Cabrio 2005 in Vendita - € 4.500">
-    <meta property="og:description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, perfetta per l'estate. Sempre tenuta in garage, capote in tessuto nero perfetta.">
+    <meta property="og:description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, perfetta per l'estate. A Quartu Sant'Elena (CA). Sempre tenuta in garage, capote in tessuto nero perfetta.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=630&fit=crop">
     <meta property="og:url" content="https://tuosottodominio.com/">
     <meta property="og:type" content="product">
@@ -24,7 +28,7 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Smart Fortwo 450 Cabrio 2005 in Vendita - € 4.500">
-    <meta name="twitter:description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, perfetta per l'estate. Sempre tenuta in garage.">
+    <meta name="twitter:description" content="Smart Fortwo 450 Cabrio del 2005, 95.000 km, perfetta per l'estate. A Quartu Sant'Elena (CA). Sempre tenuta in garage.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=630&fit=crop">
     
     <!-- Structured Data (JSON-LD) -->
@@ -63,6 +67,17 @@
             "priceCurrency": "EUR",
             "price": "4500",
             "availability": "https://schema.org/InStock",
+            "availableAtOrFrom": {
+                "@type": "Place",
+                "name": "Quartu Sant'Elena",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Quartu Sant'Elena",
+                    "addressRegion": "Sardegna",
+                    "addressCountry": "IT",
+                    "postalCode": "09045"
+                }
+            },
             "seller": {
                 "@type": "Person",
                 "name": "Venditore Privato"
@@ -471,7 +486,109 @@
             opacity: 0.95;
         }
 
-        /* Contact Section */
+        /* Dealers Section */
+        .dealers-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-top: 1px solid #dee2e6;
+        }
+
+        .dealers-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .dealers-text h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .dealers-text > p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #495057;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .dealers-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .highlight-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .highlight-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .highlight-content h4 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-content p {
+            color: #6c757d;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .dealers-note {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .dealers-note p {
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .dealers-highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlight-item {
+                padding: 1.5rem;
+            }
+            
+            .dealers-note {
+                padding: 1.5rem;
+            }
+        }
         .contact-section {
             padding: 5rem 2rem;
             background: #2c3e50;
@@ -541,29 +658,56 @@
             font-size: 1.4rem;
         }
 
-        .breadcrumbs {
-            padding: 1rem 2rem;
+        .page-header {
             background: white;
             border-bottom: 1px solid #eee;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .breadcrumbs-list {
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .category-badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .header-info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
             font-size: 0.9rem;
             color: #666;
         }
 
-        .breadcrumbs a {
-            color: #667eea;
-            text-decoration: none;
+        .header-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
-        .breadcrumbs a:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-info {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 768px) {
@@ -618,18 +762,18 @@
     </style>
 </head>
 <body>
-    <!-- Breadcrumbs for SEO -->
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <div class="breadcrumbs-list">
-            <a href="/">Home</a>
-            <span>›</span>
-            <a href="/auto-usate">Auto Usate</a>
-            <span>›</span>
-            <a href="/smart">Smart</a>
-            <span>›</span>
-            <span>Fortwo 450 Cabrio 2005</span>
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <span class="category-badge">🚗 Auto Usata in Vendita</span>
+                <div class="header-info">
+                    <span class="location">📍 Quartu Sant'Elena (CA)</span>
+                    <span class="availability">✅ Subito disponibile</span>
+                </div>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <main>
@@ -790,7 +934,7 @@
                 <h2 id="story-title" class="section-title" style="color: white;">La Storia della Mia Smart Fortwo 450</h2>
                 <div class="story-content">
                     <p class="story-text">
-                        Questa Smart Fortwo 450 Cabrio è stata sempre il mio gioiello estivo. Tenuta sempre in garage durante l'inverno e utilizzata solo nei mesi più belli dell'anno, ha mantenuto la sua bellezza originale. La capote in tessuto nero è perfetta e funzionale, gli interni sono ben conservati senza usura e tutti i tagliandi di manutenzione sono stati eseguiti regolarmente presso officina autorizzata Smart. L'ultimo intervento di manutenzione è stato fatto a maggio 2025 con sostituzione di olio motore, filtro olio e controllo generale.
+                        Questa Smart Fortwo 450 Cabrio è stata sempre il mio gioiello estivo qui a <strong>Quartu Sant'Elena</strong>. Tenuta sempre in garage durante l'inverno e utilizzata solo nei mesi più belli dell'anno, ha mantenuto la sua bellezza originale. La capote in tessuto nero è perfetta e funzionale, gli interni sono ben conservati senza usura e tutti i tagliandi di manutenzione sono stati eseguiti regolarmente presso officina autorizzata Smart nella zona di <strong>Cagliari</strong>. L'ultimo intervento di manutenzione è stato fatto a maggio 2025 con sostituzione di olio motore, filtro olio e controllo generale.
                     </p>
                 </div>
             </div>
@@ -810,8 +954,11 @@
                     <h3>Vantaggi della Versione Cabrio</h3>
                     <p>La versione <strong>Cabrio della Smart 450</strong> offre un'esperienza di guida unica grazie alla <strong>capote in tessuto</strong> che permette di trasformare rapidamente l'auto da chiusa a scoperta. Ideale per godersi le belle giornate estive, questa Smart mantiene tutta la praticità della versione chiusa con il plus dell'aria aperta.</p>
 
-                    <h3>Perché Scegliere una Smart Fortwo 450 Usata</h3>
-                    <p>Acquistare una <strong>Smart Fortwo 450 usata</strong> significa investire in un'auto che ha dimostrato la sua affidabilità nel tempo. I <strong>95.000 km</strong> di questa vettura rappresentano un chilometraggio medio per l'anno di immatricolazione, garantendo ancora molti anni di utilizzo. La manutenzione regolare e la conservazione in garage sono garanzie aggiuntive della qualità dell'auto.</p>
+                    <h3>Smart Fortwo 450 Usata a Quartu Sant'Elena</h3>
+                    <p>Questa <strong>Smart Fortwo 450 Cabrio</strong> si trova a <strong>Quartu Sant'Elena</strong>, in provincia di <strong>Cagliari</strong>, ed è disponibile per visione e prova su strada. La posizione strategica nel Sud Sardegna la rende facilmente raggiungibile da tutta l'area metropolitana di Cagliari, inclusi Selargius, Monserrato, Pirri e le zone limitrofe.</p>
+
+                    <h3>Smart Fortwo 450 per il Mercato dell'Usato</h3>
+                    <p>Questa Smart Fortwo rappresenta anche un'eccellente opportunità per <strong>rivenditori di auto usate</strong> e concessionari che operano nel segmento delle <strong>city car premium</strong>. Il modello 450 Cabrio è particolarmente apprezzato da collezionisti e appassionati del marchio Smart, garantendo una rivendibilità superiore rispetto ad altri modelli dello stesso segmento.</p>
 
                     <h3>Costi di Gestione e Manutenzione</h3>
                     <p>La Smart Fortwo è nota per i <strong>bassi costi di gestione</strong>: consumi ridotti, assicurazione contenuta e manutenzione economica. I ricambi Smart sono facilmente reperibili e la rete di assistenza è capillare su tutto il territorio nazionale. Il <strong>bollo auto</strong> per questa cilindrata è tra i più bassi in assoluto.</p>
@@ -825,7 +972,56 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Dealers Section -->
+        <section class="dealers-section" aria-labelledby="dealers-title">
+            <div class="container">
+                <h2 id="dealers-title" class="section-title">Informazioni per Rivenditori</h2>
+                <div class="dealers-content">
+                    <div class="dealers-text">
+                        <h3>Auto Adatta per Rivenditori e Concessionari</h3>
+                        <p>Questa <strong>Smart Fortwo 450 Cabrio</strong> rappresenta un'ottima opportunità anche per <strong>rivenditori di auto usate</strong> e concessionari interessati ad ampliare il proprio stock con vetture di nicchia molto richieste.</p>
+                        
+                        <div class="dealers-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">💼</span>
+                                <div class="highlight-content">
+                                    <h4>Segmento di Mercato Forte</h4>
+                                    <p>Le Smart Fortwo, specialmente in versione Cabrio, mantengono un'ottima richiesta nel mercato dell'usato grazie alla loro unicità e praticità urbana.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🔧</span>
+                                <div class="highlight-content">
+                                    <h4>Condizioni Eccellenti</h4>
+                                    <p>Veicolo sempre tenuto in garage, manutenzioni regolari presso officina autorizzata, capote perfettamente funzionante. Ideale per rivendita immediata.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <span class="highlight-icon">📋</span>
+                                <div class="highlight-content">
+                                    <h4>Documentazione Trasparente</h4>
+                                    <p>Stato documenti chiaramente specificato, nessuna sorpresa. Libretto di circolazione regolare e storico manutenzioni disponibile.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🤝</span>
+                                <div class="highlight-content">
+                                    <h4>Trattativa Professionale</h4>
+                                    <p>Disponibile per trattative dirette con rivenditori. Possibilità di visionare documentazione completa e cronologia tagliandi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dealers-note">
+                            <p><strong>Nota per Rivenditori:</strong> L'auto è vendibile anche a operatori del settore. Per informazioni su documentazione aggiuntiva, cronologia completa o eventuali condizioni commerciali dedicate, contattare direttamente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="contact-section" id="contact" aria-labelledby="contact-title">
             <div class="container">
                 <h2 id="contact-title" class="section-title" style="color: white;">Interessato alla Smart Fortwo 450?</h2>
