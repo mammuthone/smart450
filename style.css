@@ -635,7 +635,7 @@
         .floating-price {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            left: 20px;
             background: linear-gradient(45deg, #ff6b6b, #ff8e53);
             color: white;
             padding: 1rem 1.5rem;
