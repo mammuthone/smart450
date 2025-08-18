@@ -721,13 +721,11 @@
   text-align: center;
 }
 
-/* Media query per dispositivi mobili */
-@media (max-width: 768px) {
-  .carousel-slide {
-    /* Su mobile, se vuoi, puoi impostare un aspect-ratio per un contenitore minimo */
-    /* aspect-ratio: 3 / 4;  */
-    /* Tuttavia, per l'adattabilità completa, è meglio lasciare che sia l'immagine a dettare le dimensioni */
-    height: auto;
+@media (min-width: 768px) {
+  #my-gallery img {
+    max-height: 500px;   /* Limite verticale */
+    width: auto;         /* Mantiene proporzioni */
+    margin: 0 auto;      /* Centra immagine orizzontale */
   }
 }
 
