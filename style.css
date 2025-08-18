@@ -652,3 +652,119 @@
             50% { box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5); }
             100% { box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3); }
         }
+
+
+
+
+
+
+
+/* Container del carosello principale */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px; 
+  margin: auto;
+  overflow: hidden;
+  /* Rimuovi l'altezza fissa e si adatta al contenuto */
+  height: auto; 
+  /* Aggiungi una transizione sull'altezza per un effetto più fluido */
+  transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Track delle slide */
+.carousel-track {
+  display: flex;
+  /* Mantieni la transizione per la trasformazione orizzontale */
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* Anche qui, altezza automatica */
+  height: auto; 
+  /* Aggiungi questa linea per adattare l'altezza al contenuto */
+  align-items: flex-start;
+}
+
+/* Slide del carosello */
+.carousel-slide {
+  min-width: 100%;
+  /* Rimuovi ogni altezza fissa o minima */
+  height: auto; 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Stili per le immagini all'interno delle slide */
+.carousel-slide img,
+.carousel-slide picture img {
+  width: auto;
+  height: auto;
+  
+  /* L'altezza massima previene immagini verticali eccessivamente alte */
+  max-height: 85vh;
+  
+  /* Larghezza massima per le immagini orizzontali */
+  max-width: 100%; 
+  
+  /* object-fit: contain assicura che l'immagine sia interamente visibile */
+  object-fit: contain;
+}
+/* Overlays e altri elementi che devono seguire l'immagine */
+.slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  .carousel-slide {
+    /* Su mobile, se vuoi, puoi impostare un aspect-ratio per un contenitore minimo */
+    /* aspect-ratio: 3 / 4;  */
+    /* Tuttavia, per l'adattabilità completa, è meglio lasciare che sia l'immagine a dettare le dimensioni */
+    height: auto;
+  }
+}
+
+.my-grid {
+      display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra il container */
+}
+.my-grid a img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+
+.my-masonry-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 10px; /* base row height */
+  gap: 10px;
+}
+
+.my-masonry-gallery a {
+  display: block;
+}
+
+.my-masonry-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* calcolo automatico delle righe per masonry */
+.my-masonry-gallery a {
+  grid-row-end: span calc(var(--img-height) / 10);
+}
