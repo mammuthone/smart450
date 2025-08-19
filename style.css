@@ -766,3 +766,45 @@
 .my-masonry-gallery a {
   grid-row-end: span calc(var(--img-height) / 10);
 }
+
+.thumb-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.thumb-wrapper img {
+  display: block;
+  max-width: 200px; /* dimensione thumbnail */
+  border-radius: 8px;
+}
+
+.thumb-wrapper .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 8px rgba(0,0,0,0.7);
+  pointer-events: none; /* così il click passa all' <a> */
+}
+
+.thumb-wrapper .backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+/* Icona play sopra il backdrop */
+.thumb-wrapper .play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 8px rgba(0,0,0,0.7);
+  pointer-events: none; /* il click passa all'anchor */
+}
