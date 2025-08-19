@@ -64,11 +64,14 @@ app.get("/health", (req, res) => {
 
 // Servire risorse statiche con header sicuri
 app.use(express.static(__dirname, {
-    setHeaders: (res, path) => {
-        if (path.endsWith('.html')) {
-            res.setHeader('Cache-Control', 'no-cache');
+    setHeaders: (res, filePath) => {
+        if (filePath.endsWith(".html")) {
+            res.setHeader("Cache-Control", "no-cache");
         } else {
-            res.setHeader('Cache-Control', 'public, max-age=31536000');
+            res.setHeader("Cache-Control", "public, max-age=31536000");
+        }
+        if (filePath.endsWith(".mp4")) {
+            res.setHeader("Content-Type", "video/mp4");
         }
     }
 }));
@@ -79,35 +82,6 @@ app.use((err, req, res, next) => {
     res.status(500).send('Errore interno del server');
 });
 
-app.get("/*.mp4", (req, res) => {
-    const filePath = path.join(__dirname, req.path);
-    const stat = fs.statSync(filePath);
-    const fileSize = stat.size;
-    const range = req.headers.range;
-
-    if (range) {
-        const parts = range.replace(/bytes=/, "").split("-");
-        const start = parseInt(parts[0], 10);
-        const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
-        const chunkSize = end - start + 1;
-        const file = fs.createReadStream(filePath, { start, end });
-        const head = {
-            "Content-Range": `bytes ${start}-${end}/${fileSize}`,
-            "Accept-Ranges": "bytes",
-            "Content-Length": chunkSize,
-            "Content-Type": "video/mp4",
-        };
-        res.writeHead(206, head);
-        file.pipe(res);
-    } else {
-        const head = {
-            "Content-Length": fileSize,
-            "Content-Type": "video/mp4",
-        };
-        res.writeHead(200, head);
-        fs.createReadStream(filePath).pipe(res);
-    }
-});
 
 // Funzione per controllare se i certificati esistono
 function checkCertificates() {
