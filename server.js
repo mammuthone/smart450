@@ -33,6 +33,42 @@ app.use((req, res, next) => {
     next();
 });
 
+const LOG_FILE = path.join(__dirname, "accessi.json");
+
+// Carica accessi esistenti o inizializza
+let accessi = {};
+if (fs.existsSync(LOG_FILE)) {
+    accessi = JSON.parse(fs.readFileSync(LOG_FILE, "utf8"));
+}
+
+app.use((req, res, next) => {
+    const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    const protocol = req.secure ? 'HTTPS' : 'HTTP';
+
+    if (!accessi[ip]) {
+        accessi[ip] = {
+            count: 0,
+            lastAccess: null,
+            logs: []
+        };
+    }
+
+    accessi[ip].count += 1;
+    accessi[ip].lastAccess = new Date().toISOString();
+    accessi[ip].logs.push({
+        timestamp: new Date().toISOString(),
+        protocol,
+        method: req.method,
+        url: req.url
+    });
+
+    // Salva su file
+    fs.writeFileSync(LOG_FILE, JSON.stringify(accessi, null, 2));
+
+    console.log(`📥 Accesso da ${ip} via ${protocol} (totale: ${accessi[ip].count})`);
+    next();
+});
+
 // Middleware per forzare HTTPS in produzione
 app.use((req, res, next) => {
     // Se non è HTTPS e non è localhost, redirect a HTTPS
