@@ -851,7 +851,8 @@
                 debugger
                 const response = await fetch('/send-email', {
                     method: 'POST',
-                    body: formData
+                    body: JSON.stringify(Object.fromEntries(formData))
+
                 });
 
                 const result = await response.json();
