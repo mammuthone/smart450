@@ -131,7 +131,7 @@ app.use((err, req, res, next) => {
     res.status(500).send('Errore interno del server');
 });
 
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
     service: EMAIL_CONFIG.service,
     auth: EMAIL_CONFIG.auth
 });
