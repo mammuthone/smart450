@@ -848,6 +848,7 @@
 
             try {
                 const formData = new FormData(this);
+                debugger
                 const response = await fetch('/send-email', {
                     method: 'POST',
                     body: formData
@@ -864,6 +865,7 @@
                     // Reset form
                     this.reset();
                 } else {
+                    debugger
                     // Errore
                     messageDiv.textContent = result.error || 'Errore nell\'invio del messaggio. Riprova più tardi.';
                     messageDiv.className = 'form-message error';
@@ -871,6 +873,7 @@
                 }
 
             } catch (error) {
+                debugger
                 console.error('Errore invio form:', error);
                 messageDiv.textContent = 'Errore di connessione. Riprova più tardi o usa altri metodi di contatto.';
                 messageDiv.className = 'form-message error';

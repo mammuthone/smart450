@@ -1,16 +1,13 @@
 import express from "express";
 import fs from "fs";
 import path from "path";
-import localtunnel from "localtunnel";
 import https from 'https';
 import http from 'http';
 import nodemailer from 'nodemailer';
 
-
 const app = express();
 const HTTP_PORT = 80;
 const HTTPS_PORT = 443;
-const SUBDOMAIN = "cagliari-smart-450"; // cambia il nome qui
 
 // Percorso assoluto della cartella
 const __dirname = path.resolve();
@@ -46,7 +43,6 @@ const EMAIL_CONFIG = {
 };
 
 const DESTINATION_EMAIL = 'igorino80@gmail.com'; // CAMBIA CON LA TUA EMAIL
-
 
 const LOG_FILE = path.join(__dirname, "accessi.json");
 
