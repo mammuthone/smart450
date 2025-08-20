@@ -25,7 +25,7 @@ const transp = nodemailer.createTransport({
 
 async function sendProva(){
     console.log('🚀 Inizio invio email di prova...');
-    return await transporter.sendMail({
+    return await transp.sendMail({
       from: `"Il tuo sito" <tuaemail@gmail.com>`,
       to,
       subject,
