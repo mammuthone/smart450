@@ -38,7 +38,7 @@ const EMAIL_CONFIG = {
     service: 'gmail', // o il tuo provider email
     auth: {
         user: 'igorino80@gmail.com', // CAMBIA CON LA TUA EMAIL
-        pass: 'sqhgsvauyuvmjbek' // CAMBIA CON LA TUA PASSWORD APP
+        pass: 'sqhg svau yuvm jbek' // CAMBIA CON LA TUA PASSWORD APP
     }
 };
 
