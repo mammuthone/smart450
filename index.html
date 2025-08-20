@@ -851,6 +851,9 @@
                 debugger
                 const response = await fetch('/send-email', {
                     method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'  // IMPORTANTE: Aggiungi questo header
+                    },
                     body: JSON.stringify(Object.fromEntries(formData))
 
                 });
