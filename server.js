@@ -15,14 +15,17 @@ const __dirname = path.resolve();
 
 const transp = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
+  port: 587,
   secure: true, // true per 465, false per 587
   auth: {
      user: 'igorino80@gmail.com', // CAMBIA CON LA TUA EMAIL
         pass: 'sqhgsvauyuvmjbek' //
   },
   logger: true,   // log generali
-  debug: true   
+  debug: true,
+  tls: {
+    rejectUnauthorized: false // utile se ci sono problemi con i certificati
+  }   
 });
 
 async function sendProva(){
