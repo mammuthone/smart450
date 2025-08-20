@@ -849,7 +849,7 @@
             try {
                 const formData = new FormData(this);
                 debugger
-                const response = await fetch('/send-email-empty', {
+                const response = await fetch('/send-email', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'  // IMPORTANTE: Aggiungi questo header
