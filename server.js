@@ -4,6 +4,8 @@ import path from "path";
 import localtunnel from "localtunnel";
 import https from 'https';
 import http from 'http';
+import nodemailer from 'nodemailer';
+
 
 const app = express();
 const HTTP_PORT = 80;
@@ -32,6 +34,17 @@ app.use((req, res, next) => {
 
     next();
 });
+
+const EMAIL_CONFIG = {
+    service: 'gmail', // o il tuo provider email
+    auth: {
+        user: 'igorino80@gmail.com', // CAMBIA CON LA TUA EMAIL
+        pass: 'sqhg svau yuvm jbek' // CAMBIA CON LA TUA PASSWORD APP
+    }
+};
+
+const DESTINATION_EMAIL = 'igorino80@gmail.com'; // CAMBIA CON LA TUA EMAIL
+
 
 const LOG_FILE = path.join(__dirname, "accessi.json");
 
@@ -116,6 +129,190 @@ app.use(express.static(__dirname, {
 app.use((err, req, res, next) => {
     console.error('❌ Errore server:', err.message);
     res.status(500).send('Errore interno del server');
+});
+
+const transporter = nodemailer.createTransporter({
+    service: EMAIL_CONFIG.service,
+    auth: EMAIL_CONFIG.auth
+});
+
+// Verifica configurazione email all'avvio
+transporter.verify((error, success) => {
+    if (error) {
+        console.log('❌ Errore configurazione email:', error);
+        console.log('💡 Controlla le credenziali email in EMAIL_CONFIG');
+    } else {
+        console.log('✅ Server email configurato correttamente');
+    }
+});
+
+// Route per invio email
+app.post('/send-email', upload.none(), async (req, res) => {
+    try {
+        const { name, email, phone, subject, message, privacy } = req.body;
+        
+        // Validazione campi obbligatori
+        if (!name || !email || !message || !privacy) {
+            return res.status(400).json({ 
+                error: 'Tutti i campi obbligatori devono essere compilati' 
+            });
+        }
+
+        // Validazione email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ 
+                error: 'Formato email non valido' 
+            });
+        }
+
+        // Mappa dei soggetti
+        const subjectMap = {
+            'info-generali': 'Richiesta Informazioni Generali',
+            'visione-auto': 'Richiesta Visione Auto',
+            'prova-auto': 'Richiesta Prova Auto',
+            'documentazione': 'Richiesta Documentazione Aggiuntiva',
+            'trattativa': 'Proposta di Trattativa',
+            'rivenditore': 'Contatto Rivenditore',
+            'altro': 'Altro'
+        };
+
+        const subjectText = subjectMap[subject] || 'Contatto dal sito';
+        const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+
+        // Email per te (proprietario)
+        const ownerMailOptions = {
+            from: EMAIL_CONFIG.auth.user,
+            to: DESTINATION_EMAIL,
+            subject: `🚗 Smart Fortwo 450 - ${subjectText}`,
+            html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f5f5f5;">
+                    <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h2 style="color: #333; border-bottom: 3px solid #0088cc; padding-bottom: 10px;">
+                            🚗 Nuovo Contatto - Smart Fortwo 450
+                        </h2>
+                        
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                            <h3 style="color: #0088cc; margin-top: 0;">📋 Dettagli Contatto</h3>
+                            <p><strong>Nome:</strong> ${name}</p>
+                            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                            ${phone ? `<p><strong>Telefono:</strong> ${phone}</p>` : ''}
+                            <p><strong>Tipo richiesta:</strong> ${subjectText}</p>
+                            <p><strong>IP:</strong> ${ip}</p>
+                            <p><strong>Data/Ora:</strong> ${new Date().toLocaleString('it-IT')}</p>
+                        </div>
+                        
+                        <div style="background: #fff3cd; padding: 20px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                            <h3 style="color: #856404; margin-top: 0;">💬 Messaggio</h3>
+                            <p style="line-height: 1.6; color: #856404;">${message.replace(/\n/g, '<br>')}</p>
+                        </div>
+                        
+                        <div style="margin-top: 30px; padding: 20px; background: #d1ecf1; border-radius: 5px;">
+                            <h4 style="color: #0c5460; margin-top: 0;">🎯 Azioni Suggerite</h4>
+                            <p style="color: #0c5460; margin: 0;">
+                                • Rispondi entro 24 ore per mantenere alta l'attenzione<br>
+                                • Se richiesta visione/prova, coordina appuntamento<br>
+                                • Tieni traccia del contatto nel tuo CRM
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; color: #666; font-size: 12px;">
+                        Email automatica generata dal sito Smart Fortwo 450
+                    </div>
+                </div>
+            `
+        };
+
+        // Email di conferma per l'utente
+        const userMailOptions = {
+            from: EMAIL_CONFIG.auth.user,
+            to: email,
+            subject: `✅ Messaggio ricevuto - Smart Fortwo 450 Cabrio`,
+            html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: #f5f5f5;">
+                    <div style="background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                        <h2 style="color: #333; border-bottom: 3px solid #4CAF50; padding-bottom: 10px;">
+                            ✅ Messaggio Ricevuto!
+                        </h2>
+                        
+                        <p>Ciao <strong>${name}</strong>,</p>
+                        
+                        <p style="line-height: 1.6;">
+                            Grazie per il tuo interesse nella mia <strong>Smart Fortwo 450 Cabrio</strong>! 
+                            Ho ricevuto il tuo messaggio e ti risponderò al più presto.
+                        </p>
+                        
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
+                            <h3 style="color: #0088cc; margin-top: 0;">📋 Riepilogo del tuo messaggio</h3>
+                            <p><strong>Tipo richiesta:</strong> ${subjectText}</p>
+                            <p><strong>Data invio:</strong> ${new Date().toLocaleString('it-IT')}</p>
+                        </div>
+                        
+                        <div style="background: #d4edda; padding: 20px; border-radius: 5px; border-left: 4px solid #4CAF50;">
+                            <h3 style="color: #155724; margin-top: 0;">⏰ Tempi di Risposta</h3>
+                            <p style="color: #155724; margin: 0;">
+                                Di solito rispondo entro <strong>24 ore</strong>. Se la tua richiesta è urgente, 
+                                puoi anche contattarmi tramite:
+                            </p>
+                            <ul style="color: #155724;">
+                                <li>💬 Chat del sito (angolo in basso a destra)</li>
+                                <li>📱 Telegram (link sul sito)</li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <p style="color: #666;">
+                                🚗 <strong>Smart Fortwo 450 Cabrio 2005</strong> 🚗<br>
+                                126.000 km • € 3.500 • Quartu Sant'Elena (CA)
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px; color: #666; font-size: 12px;">
+                        Questa è una email automatica di conferma
+                    </div>
+                </div>
+            `
+        };
+
+        // Invia entrambe le email
+        await transporter.sendMail(ownerMailOptions);
+        await transporter.sendMail(userMailOptions);
+
+        // Log dell'invio
+        console.log(`📧 Email inviata da: ${name} (${email}) - Tipo: ${subjectText}`);
+        
+        // Salva il contatto in un file per tracciare
+        const contactsFile = path.join(__dirname, "contacts.json");
+        let contacts = [];
+        if (fs.existsSync(contactsFile)) {
+            contacts = JSON.parse(fs.readFileSync(contactsFile, "utf8"));
+        }
+        
+        contacts.push({
+            timestamp: new Date().toISOString(),
+            name,
+            email,
+            phone,
+            subject: subjectText,
+            message,
+            ip
+        });
+        
+        fs.writeFileSync(contactsFile, JSON.stringify(contacts, null, 2));
+
+        res.json({ 
+            success: true, 
+            message: 'Messaggio inviato con successo! Ti risponderò al più presto.' 
+        });
+
+    } catch (error) {
+        console.error('❌ Errore invio email:', error);
+        res.status(500).json({ 
+            error: 'Errore nell\'invio del messaggio. Riprova più tardi.' 
+        });
+    }
 });
 
 

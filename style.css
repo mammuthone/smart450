@@ -1,810 +1,1061 @@
  * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            overflow-x: hidden;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-100px); }
-        }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 2;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            animation: slideInUp 1s ease-out;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.2s both;
-        }
-
-        .price-tag {
-            background: rgba(255,255,255,0.95);
-            color: #667eea;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 2rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: slideInUp 1s ease-out 0.4s both;
-        }
-
-        .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            color: white;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            animation: slideInUp 1s ease-out 0.6s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Animations */
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 5rem 2rem;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        /* Modern Carousel */
-        .carousel-container {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-            background: white;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            height: 500px;
-            position: relative;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            loading: lazy;
-        }
-
-        .slide-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.9);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            z-index: 3;
-            aria-label: "Navigazione carosello";
-        }
-
-        .carousel-nav:hover {
-            background: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carousel-nav.prev { 
-            left: 20px;
-        }
-        
-        .carousel-nav.next { 
-            right: 20px; 
-        }
-
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: none;
-            background: #ddd;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            aria-label: "Indicatore slide";
-        }
-
-        .indicator.active {
-            background: #667eea;
-            transform: scale(1.2);
-        }
-
-        /* Specs Section */
-        .specs-section {
-            padding: 5rem 2rem;
-            background: white;
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .spec-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .spec-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .spec-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .spec-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-
-        .spec-value {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-        }
-
-        /* Status Section */
-        .status-section {
-            padding: 5rem 2rem;
-            background: #ecf0f1;
-        }
-
-        .status-table-container {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            overflow-x: auto;
-        }
-
-        .status-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 1.1rem;
-        }
-
-        .status-table th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-            border: none;
-        }
-
-        .status-table th:first-child {
-            border-radius: 10px 0 0 0;
-        }
-
-        .status-table th:last-child {
-            border-radius: 0 10px 0 0;
-        }
-
-        .status-table td {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .status-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .status-valid {
-            background: rgba(46, 204, 113, 0.05);
-        }
-
-        .status-invalid {
-            background: rgba(231, 76, 60, 0.05);
-        }
-
-        .status-icon {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-right: 0.5rem;
-            padding: 0.3rem 0.6rem;
-            border-radius: 50%;
-            display: inline-block;
-            text-align: center;
-            min-width: 25px;
-        }
-
-        .status-icon.valid {
-            background: #2ecc71;
-            color: white;
-        }
-
-        .status-icon.invalid {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .status-disclaimer {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-            color: white;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        /* Story Section */
-        .story-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .story-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .story-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            opacity: 0.95;
-        }
-
-        /* Dealers Section */
-        .dealers-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-top: 1px solid #dee2e6;
-        }
-
-        .dealers-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .dealers-text h3 {
-            color: #2c3e50;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .dealers-text > p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: #495057;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .dealers-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .highlight-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-            transition: all 0.3s ease;
-            border-left: 4px solid #667eea;
-        }
-
-        .highlight-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-
-        .highlight-icon {
-            font-size: 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            flex-shrink: 0;
-            margin-top: 0.2rem;
-        }
-
-        .highlight-content h4 {
-            color: #2c3e50;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-        }
-
-        .highlight-content p {
-            color: #6c757d;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .dealers-note {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .dealers-note p {
-            margin: 0;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            opacity: 0.95;
-        }
-
-        @media (max-width: 768px) {
-            .dealers-highlights {
-                grid-template-columns: 1fr;
-            }
-            
-            .highlight-item {
-                padding: 1.5rem;
-            }
-            
-            .dealers-note {
-                padding: 1.5rem;
-            }
-        }
-        .contact-section {
-            padding: 5rem 2rem;
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-        }
-
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-btn.phone {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: white;
-        }
-
-        .contact-btn.whatsapp {
-            background: linear-gradient(45deg, #25d366, #128c7e);
-            color: white;
-        }
-
-        .contact-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-
-        /* SEO Content Section */
-        .seo-content {
-            padding: 5rem 2rem;
-            background: #f8f9fa;
-        }
-
-        .seo-text {
-            max-width: 1000px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #2c3e50;
-            text-align: justify;
-        }
-
-        .seo-text h2 {
-            color: #667eea;
-            margin: 2rem 0 1rem;
-            font-size: 1.8rem;
-        }
-
-        .seo-text h3 {
-            color: #2c3e50;
-            margin: 1.5rem 0 1rem;
-            font-size: 1.4rem;
-        }
-
-        .page-header {
-            background: white;
-            border-bottom: 1px solid #eee;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .category-badge {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        .header-info {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .header-info span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .header-info {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .carousel-slide {
-                height: 300px;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .spec-card {
-                padding: 1.5rem;
-            }
-            
-            .status-table {
-                font-size: 0.9rem;
-            }
-            
-            .status-table th,
-            .status-table td {
-                padding: 0.8rem 0.5rem;
-            }
-            
-            .status-disclaimer {
-                padding: 1rem;
-            }
-        }
-
-        /* Floating elements */
-        .floating-price {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-            z-index: 1000;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3); }
-            50% { box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5); }
-            100% { box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3); }
-        }
-
-
-
-
-
-
-
-/* Container del carosello principale */
-.carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 900px; 
-  margin: auto;
-  overflow: hidden;
-  /* Rimuovi l'altezza fissa e si adatta al contenuto */
-  height: auto; 
-  /* Aggiungi una transizione sull'altezza per un effetto più fluido */
-  transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Track delle slide */
-.carousel-track {
-  display: flex;
-  /* Mantieni la transizione per la trasformazione orizzontale */
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Anche qui, altezza automatica */
-  height: auto; 
-  /* Aggiungi questa linea per adattare l'altezza al contenuto */
-  align-items: flex-start;
-}
-
-/* Slide del carosello */
-.carousel-slide {
-  min-width: 100%;
-  /* Rimuovi ogni altezza fissa o minima */
-  height: auto; 
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Stili per le immagini all'interno delle slide */
-.carousel-slide img,
-.carousel-slide picture img {
-  width: auto;
-  height: auto;
-  
-  /* L'altezza massima previene immagini verticali eccessivamente alte */
-  max-height: 85vh;
-  
-  /* Larghezza massima per le immagini orizzontali */
-  max-width: 100%; 
-  
-  /* object-fit: contain assicura che l'immagine sia interamente visibile */
-  object-fit: contain;
-}
-/* Overlays e altri elementi che devono seguire l'immagine */
-.slide-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
-  color: white;
-  padding: 2rem;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  #my-gallery img {
-    max-height: 500px;   /* Limite verticale */
-    width: auto;         /* Mantiene proporzioni */
-    margin: 0 auto;      /* Centra immagine orizzontale */
-  }
-}
-
-.my-grid {
-      display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 1200px;
-    margin: 0 auto; /* Centra il container */
-}
-.my-grid a img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-
-.my-masonry-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 10px; /* base row height */
-  gap: 10px;
-}
-
-.my-masonry-gallery a {
-  display: block;
-}
-
-.my-masonry-gallery img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* calcolo automatico delle righe per masonry */
-.my-masonry-gallery a {
-  grid-row-end: span calc(var(--img-height) / 10);
-}
-
-.thumb-wrapper {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.thumb-wrapper img {
-  display: block;
-  max-width: 200px; /* dimensione thumbnail */
-  border-radius: 8px;
-}
-
-.thumb-wrapper .play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: white;
-  text-shadow: 0 0 8px rgba(0,0,0,0.7);
-  pointer-events: none; /* così il click passa all' <a> */
-}
-
-.thumb-wrapper .backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
-}
-
-/* Icona play sopra il backdrop */
-.thumb-wrapper .play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
-  color: white;
-  text-shadow: 0 0 8px rgba(0,0,0,0.7);
-  pointer-events: none; /* il click passa all'anchor */
-}
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+     line-height: 1.6;
+     color: #2c3e50;
+     overflow-x: hidden;
+ }
+
+ /* Hero Section */
+ .hero {
+     height: 100vh;
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .hero::before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+     animation: float 20s linear infinite;
+ }
+
+ @keyframes float {
+     0% {
+         transform: translateY(0px);
+     }
+
+     100% {
+         transform: translateY(-100px);
+     }
+ }
+
+ .hero-content {
+     text-align: center;
+     color: white;
+     z-index: 2;
+     position: relative;
+ }
+
+ .hero h1 {
+     font-size: clamp(2.5rem, 6vw, 4rem);
+     font-weight: 700;
+     margin-bottom: 1rem;
+     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+     animation: slideInUp 1s ease-out;
+ }
+
+ .hero-subtitle {
+     font-size: clamp(1.2rem, 3vw, 1.8rem);
+     margin-bottom: 2rem;
+     opacity: 0.9;
+     animation: slideInUp 1s ease-out 0.2s both;
+ }
+
+ .price-tag {
+     background: rgba(255, 255, 255, 0.95);
+     color: #667eea;
+     padding: 1rem 2rem;
+     border-radius: 50px;
+     font-size: 2rem;
+     font-weight: 700;
+     display: inline-block;
+     margin-bottom: 2rem;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+     animation: slideInUp 1s ease-out 0.4s both;
+ }
+
+ .cta-button {
+     background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+     color: white;
+     padding: 1rem 2.5rem;
+     border: none;
+     border-radius: 50px;
+     font-size: 1.2rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     text-decoration: none;
+     display: inline-block;
+     animation: slideInUp 1s ease-out 0.6s both;
+ }
+
+ .cta-button:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+ }
+
+ /* Animations */
+ @keyframes slideInUp {
+     from {
+         opacity: 0;
+         transform: translateY(30px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ /* Gallery Section */
+ .gallery-section {
+     padding: 5rem 2rem;
+     background: #f8f9fa;
+ }
+
+ .container {
+     max-width: 1200px;
+     margin: 0 auto;
+ }
+
+ .section-title {
+     text-align: center;
+     font-size: 2.5rem;
+     font-weight: 700;
+     margin-bottom: 3rem;
+     color: #2c3e50;
+     position: relative;
+ }
+
+ .section-title::after {
+     content: '';
+     width: 100px;
+     height: 4px;
+     background: linear-gradient(45deg, #667eea, #764ba2);
+     position: absolute;
+     bottom: -10px;
+     left: 50%;
+     transform: translateX(-50%);
+     border-radius: 2px;
+ }
+
+ /* Modern Carousel */
+ .carousel-container {
+     position: relative;
+     border-radius: 20px;
+     overflow: hidden;
+     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+     background: white;
+ }
+
+ .carousel-track {
+     display: flex;
+     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ }
+
+ .carousel-slide {
+     min-width: 100%;
+     height: 500px;
+     position: relative;
+ }
+
+ .carousel-slide img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     loading: lazy;
+ }
+
+ .slide-overlay {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+     color: white;
+     padding: 2rem;
+     text-align: center;
+ }
+
+ .carousel-nav {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     background: rgba(255, 255, 255, 0.9);
+     border: none;
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.5rem;
+     transition: all 0.3s ease;
+     z-index: 3;
+     aria-label: "Navigazione carosello";
+ }
+
+ .carousel-nav:hover {
+     background: white;
+     transform: translateY(-50%) scale(1.1);
+ }
+
+ .carousel-nav.prev {
+     left: 20px;
+ }
+
+ .carousel-nav.next {
+     right: 20px;
+ }
+
+ .carousel-indicators {
+     display: flex;
+     justify-content: center;
+     gap: 10px;
+     margin-top: 20px;
+ }
+
+ .indicator {
+     width: 12px;
+     height: 12px;
+     border-radius: 50%;
+     border: none;
+     background: #ddd;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     aria-label: "Indicatore slide";
+ }
+
+ .indicator.active {
+     background: #667eea;
+     transform: scale(1.2);
+ }
+
+ /* Specs Section */
+ .specs-section {
+     padding: 5rem 2rem;
+     background: white;
+ }
+
+ .specs-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 2rem;
+     margin-top: 3rem;
+ }
+
+ .spec-card {
+     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+     padding: 2rem;
+     border-radius: 15px;
+     text-align: center;
+     transition: all 0.3s ease;
+     border: 1px solid rgba(255, 255, 255, 0.2);
+ }
+
+ .spec-card:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+ }
+
+ .spec-icon {
+     font-size: 3rem;
+     margin-bottom: 1rem;
+     color: #667eea;
+ }
+
+ .spec-title {
+     font-size: 1.2rem;
+     font-weight: 600;
+     margin-bottom: 0.5rem;
+     color: #2c3e50;
+ }
+
+ .spec-value {
+     font-size: 1.1rem;
+     color: #7f8c8d;
+ }
+
+ /* Status Section */
+ .status-section {
+     padding: 5rem 2rem;
+     background: #ecf0f1;
+ }
+
+ .status-table-container {
+     background: white;
+     border-radius: 15px;
+     padding: 2rem;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+     overflow-x: auto;
+ }
+
+ .status-table {
+     width: 100%;
+     border-collapse: collapse;
+     font-size: 1.1rem;
+ }
+
+ .status-table th {
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     color: white;
+     padding: 1rem;
+     text-align: left;
+     font-weight: 600;
+     border: none;
+ }
+
+ .status-table th:first-child {
+     border-radius: 10px 0 0 0;
+ }
+
+ .status-table th:last-child {
+     border-radius: 0 10px 0 0;
+ }
+
+ .status-table td {
+     padding: 1rem;
+     border-bottom: 1px solid #eee;
+ }
+
+ .status-table tr:last-child td {
+     border-bottom: none;
+ }
+
+ .status-valid {
+     background: rgba(46, 204, 113, 0.05);
+ }
+
+ .status-invalid {
+     background: rgba(231, 76, 60, 0.05);
+ }
+
+ .status-icon {
+     font-weight: bold;
+     font-size: 1.2rem;
+     margin-right: 0.5rem;
+     padding: 0.3rem 0.6rem;
+     border-radius: 50%;
+     display: inline-block;
+     text-align: center;
+     min-width: 25px;
+ }
+
+ .status-icon.valid {
+     background: #2ecc71;
+     color: white;
+ }
+
+ .status-icon.invalid {
+     background: #e74c3c;
+     color: white;
+ }
+
+ .status-disclaimer {
+     margin-top: 2rem;
+     padding: 1.5rem;
+     background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+     color: white;
+     border-radius: 10px;
+     text-align: center;
+     box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+ }
+
+ /* Story Section */
+ .story-section {
+     padding: 5rem 2rem;
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     color: white;
+ }
+
+ .story-content {
+     max-width: 800px;
+     margin: 0 auto;
+     text-align: center;
+ }
+
+ .story-text {
+     font-size: 1.3rem;
+     line-height: 1.8;
+     opacity: 0.95;
+ }
+
+ /* Dealers Section */
+ .dealers-section {
+     padding: 5rem 2rem;
+     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+     border-top: 1px solid #dee2e6;
+ }
+
+ .dealers-content {
+     max-width: 1000px;
+     margin: 0 auto;
+ }
+
+ .dealers-text h3 {
+     color: #2c3e50;
+     font-size: 1.8rem;
+     margin-bottom: 1.5rem;
+     text-align: center;
+ }
+
+ .dealers-text>p {
+     font-size: 1.2rem;
+     line-height: 1.7;
+     color: #495057;
+     text-align: center;
+     margin-bottom: 3rem;
+ }
+
+ .dealers-highlights {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 2rem;
+     margin-bottom: 3rem;
+ }
+
+ .highlight-item {
+     background: white;
+     padding: 2rem;
+     border-radius: 15px;
+     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+     display: flex;
+     gap: 1rem;
+     align-items: flex-start;
+     transition: all 0.3s ease;
+     border-left: 4px solid #667eea;
+ }
+
+ .highlight-item:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+ }
+
+ .highlight-icon {
+     font-size: 2rem;
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     background-clip: text;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     flex-shrink: 0;
+     margin-top: 0.2rem;
+ }
+
+ .highlight-content h4 {
+     color: #2c3e50;
+     font-size: 1.2rem;
+     font-weight: 600;
+     margin-bottom: 0.8rem;
+ }
+
+ .highlight-content p {
+     color: #6c757d;
+     line-height: 1.6;
+     margin: 0;
+ }
+
+ .dealers-note {
+     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+     color: white;
+     padding: 2rem;
+     border-radius: 15px;
+     text-align: center;
+     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+ }
+
+ .dealers-note p {
+     margin: 0;
+     font-size: 1.1rem;
+     line-height: 1.7;
+     opacity: 0.95;
+ }
+
+ @media (max-width: 768px) {
+     .dealers-highlights {
+         grid-template-columns: 1fr;
+     }
+
+     .highlight-item {
+         padding: 1.5rem;
+     }
+
+     .dealers-note {
+         padding: 1.5rem;
+     }
+ }
+
+ .contact-section {
+     padding: 5rem 2rem;
+     background: #2c3e50;
+     color: white;
+     text-align: center;
+ }
+
+ .contact-buttons {
+     display: flex;
+     justify-content: center;
+     gap: 2rem;
+     margin-top: 3rem;
+     flex-wrap: wrap;
+ }
+
+ .contact-btn {
+     padding: 1rem 2rem;
+     border-radius: 50px;
+     text-decoration: none;
+     font-weight: 600;
+     font-size: 1.1rem;
+     transition: all 0.3s ease;
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+ }
+
+ .contact-btn.phone {
+     background: linear-gradient(45deg, #4facfe, #00f2fe);
+     color: white;
+ }
+
+ .contact-btn.whatsapp {
+     background: linear-gradient(45deg, #25d366, #128c7e);
+     color: white;
+ }
+
+ .contact-btn:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+ }
+
+ /* SEO Content Section */
+ .seo-content {
+     padding: 5rem 2rem;
+     background: #f8f9fa;
+ }
+
+ .seo-text {
+     max-width: 1000px;
+     margin: 0 auto;
+     font-size: 1.1rem;
+     line-height: 1.8;
+     color: #2c3e50;
+     text-align: justify;
+ }
+
+ .seo-text h2 {
+     color: #667eea;
+     margin: 2rem 0 1rem;
+     font-size: 1.8rem;
+ }
+
+ .seo-text h3 {
+     color: #2c3e50;
+     margin: 1.5rem 0 1rem;
+     font-size: 1.4rem;
+ }
+
+ .page-header {
+     background: white;
+     border-bottom: 1px solid #eee;
+     padding: 1rem 2rem;
+     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+ }
+
+ .header-content {
+     max-width: 1200px;
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 1rem;
+ }
+
+ .category-badge {
+     background: linear-gradient(45deg, #667eea, #764ba2);
+     color: white;
+     padding: 0.5rem 1rem;
+     border-radius: 25px;
+     font-size: 0.9rem;
+     font-weight: 600;
+     display: inline-block;
+ }
+
+ .header-info {
+     display: flex;
+     gap: 1.5rem;
+     align-items: center;
+     font-size: 0.9rem;
+     color: #666;
+ }
+
+ .header-info span {
+     display: flex;
+     align-items: center;
+     gap: 0.3rem;
+ }
+
+ @media (max-width: 768px) {
+     .header-content {
+         flex-direction: column;
+         text-align: center;
+     }
+
+     .header-info {
+         justify-content: center;
+     }
+ }
+
+ @media (max-width: 768px) {
+     .carousel-slide {
+         height: 300px;
+     }
+
+     .contact-buttons {
+         flex-direction: column;
+         align-items: center;
+     }
+
+     .spec-card {
+         padding: 1.5rem;
+     }
+
+     .status-table {
+         font-size: 0.9rem;
+     }
+
+     .status-table th,
+     .status-table td {
+         padding: 0.8rem 0.5rem;
+     }
+
+     .status-disclaimer {
+         padding: 1rem;
+     }
+ }
+
+ /* Floating elements */
+ .floating-price {
+     position: fixed;
+     bottom: 20px;
+     left: 20px;
+     background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+     color: white;
+     padding: 1rem 1.5rem;
+     border-radius: 50px;
+     font-weight: 700;
+     font-size: 1.2rem;
+     box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+     z-index: 1000;
+     animation: pulse 2s infinite;
+ }
+
+ @keyframes pulse {
+     0% {
+         box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+     }
+
+     50% {
+         box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+     }
+
+     100% {
+         box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+     }
+ }
+
+
+
+
+
+
+
+ /* Container del carosello principale */
+ .carousel-container {
+     position: relative;
+     width: 100%;
+     max-width: 900px;
+     margin: auto;
+     overflow: hidden;
+     /* Rimuovi l'altezza fissa e si adatta al contenuto */
+     height: auto;
+     /* Aggiungi una transizione sull'altezza per un effetto più fluido */
+     transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+ }
+
+ /* Track delle slide */
+ .carousel-track {
+     display: flex;
+     /* Mantieni la transizione per la trasformazione orizzontale */
+     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+     /* Anche qui, altezza automatica */
+     height: auto;
+     /* Aggiungi questa linea per adattare l'altezza al contenuto */
+     align-items: flex-start;
+ }
+
+ /* Slide del carosello */
+ .carousel-slide {
+     min-width: 100%;
+     /* Rimuovi ogni altezza fissa o minima */
+     height: auto;
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ /* Stili per le immagini all'interno delle slide */
+ .carousel-slide img,
+ .carousel-slide picture img {
+     width: auto;
+     height: auto;
+
+     /* L'altezza massima previene immagini verticali eccessivamente alte */
+     max-height: 85vh;
+
+     /* Larghezza massima per le immagini orizzontali */
+     max-width: 100%;
+
+     /* object-fit: contain assicura che l'immagine sia interamente visibile */
+     object-fit: contain;
+ }
+
+ /* Overlays e altri elementi che devono seguire l'immagine */
+ .slide-overlay {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+     color: white;
+     padding: 2rem;
+     text-align: center;
+ }
+
+ @media (min-width: 768px) {
+     #my-gallery img {
+         max-height: 500px;
+         /* Limite verticale */
+         width: auto;
+         /* Mantiene proporzioni */
+         margin: 0 auto;
+         /* Centra immagine orizzontale */
+     }
+ }
+
+ .my-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+     gap: 1.5rem;
+     max-width: 1200px;
+     margin: 0 auto;
+     /* Centra il container */
+ }
+
+ .my-grid a img {
+     width: 100%;
+     height: auto;
+     display: block;
+     border-radius: 8px;
+     object-fit: cover;
+ }
+
+
+ .my-masonry-gallery {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     grid-auto-rows: 10px;
+     /* base row height */
+     gap: 10px;
+ }
+
+ .my-masonry-gallery a {
+     display: block;
+ }
+
+ .my-masonry-gallery img {
+     width: 100%;
+     height: auto;
+     display: block;
+ }
+
+ /* calcolo automatico delle righe per masonry */
+ .my-masonry-gallery a {
+     grid-row-end: span calc(var(--img-height) / 10);
+ }
+
+ .thumb-wrapper {
+     position: relative;
+     display: inline-block;
+     cursor: pointer;
+ }
+
+ .thumb-wrapper img {
+     display: block;
+     max-width: 200px;
+     /* dimensione thumbnail */
+     border-radius: 8px;
+ }
+
+ .thumb-wrapper .play-icon {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     font-size: 3rem;
+     color: white;
+     text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+     pointer-events: none;
+     /* così il click passa all' <a> */
+ }
+
+ .thumb-wrapper .backdrop {
+     position: absolute;
+     inset: 0;
+     background: rgba(0, 0, 0, 0.4);
+     border-radius: 8px;
+ }
+
+ /* Icona play sopra il backdrop */
+ .thumb-wrapper .play-icon {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     font-size: 3rem;
+     color: white;
+     text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+     pointer-events: none;
+     /* il click passa all'anchor */
+ }
+
+ .contact-methods {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 2rem;
+     margin-bottom: 3rem;
+ }
+
+ .contact-method {
+     background: rgba(255, 255, 255, 0.1);
+     padding: 2rem;
+     border-radius: 15px;
+     text-align: center;
+     backdrop-filter: blur(10px);
+     border: 1px solid rgba(255, 255, 255, 0.2);
+ }
+
+ .contact-icon {
+     font-size: 3rem;
+     margin-bottom: 1rem;
+ }
+
+ .contact-method h4 {
+     color: white;
+     margin-bottom: 1rem;
+     font-size: 1.3rem;
+ }
+
+ .contact-method p {
+     color: rgba(255, 255, 255, 0.8);
+     margin-bottom: 1.5rem;
+     line-height: 1.5;
+ }
+
+ /* Bottone Telegram */
+ .contact-btn.telegram {
+     background: linear-gradient(135deg, #0088cc, #229ed9);
+     color: white;
+     padding: 12px 24px;
+     border-radius: 25px;
+     text-decoration: none;
+     display: inline-flex;
+     align-items: center;
+     gap: 8px;
+     font-weight: 600;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3);
+ }
+
+ .contact-btn.telegram:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 20px rgba(0, 136, 204, 0.4);
+     background: linear-gradient(135deg, #229ed9, #0088cc);
+ }
+
+ .telegram-icon {
+     font-size: 1.2rem;
+ }
+
+ /* Form Email */
+ .email-form-container {
+     background: rgba(255, 255, 255, 0.1);
+     padding: 2.5rem;
+     border-radius: 20px;
+     backdrop-filter: blur(15px);
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     max-width: 600px;
+     margin: 0 auto;
+ }
+
+ .contact-form {
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+ }
+
+ .form-group {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .form-group label {
+     color: white;
+     font-weight: 600;
+     margin-bottom: 0.5rem;
+     font-size: 0.95rem;
+ }
+
+ .form-group input,
+ .form-group select,
+ .form-group textarea {
+     padding: 12px 16px;
+     border: 2px solid rgba(255, 255, 255, 0.3);
+     border-radius: 10px;
+     background: rgba(255, 255, 255, 0.1);
+     color: white;
+     font-size: 1rem;
+     transition: all 0.3s ease;
+ }
+
+ .form-group input::placeholder,
+ .form-group textarea::placeholder {
+     color: rgba(255, 255, 255, 0.6);
+ }
+
+ .form-group input:focus,
+ .form-group select:focus,
+ .form-group textarea:focus {
+     outline: none;
+     border-color: #0088cc;
+     background: rgba(255, 255, 255, 0.15);
+     box-shadow: 0 0 0 3px rgba(0, 136, 204, 0.2);
+ }
+
+ /* Checkbox personalizzata */
+ .checkbox-group {
+     flex-direction: row !important;
+     align-items: flex-start;
+     gap: 12px;
+ }
+
+ .checkbox-label {
+     display: flex;
+     align-items: flex-start;
+     gap: 12px;
+     cursor: pointer;
+     color: rgba(255, 255, 255, 0.9);
+     line-height: 1.4;
+ }
+
+ .checkbox-label input[type="checkbox"] {
+     display: none;
+ }
+
+ .checkmark {
+     width: 20px;
+     height: 20px;
+     border: 2px solid rgba(255, 255, 255, 0.5);
+     border-radius: 4px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-shrink: 0;
+     transition: all 0.3s ease;
+     margin-top: 2px;
+ }
+
+ .checkbox-label input[type="checkbox"]:checked+.checkmark {
+     background: #0088cc;
+     border-color: #0088cc;
+ }
+
+ .checkbox-label input[type="checkbox"]:checked+.checkmark::after {
+     content: "✓";
+     color: white;
+     font-size: 14px;
+     font-weight: bold;
+ }
+
+ /* Bottone invio */
+ .submit-btn {
+     background: linear-gradient(135deg, #4CAF50, #45a049);
+     color: white;
+     padding: 15px 30px;
+     border: none;
+     border-radius: 25px;
+     font-size: 1.1rem;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+ }
+
+ .submit-btn:hover:not(:disabled) {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+     background: linear-gradient(135deg, #45a049, #4CAF50);
+ }
+
+ .submit-btn:disabled {
+     opacity: 0.7;
+     cursor: not-allowed;
+     transform: none;
+ }
+
+ /* Messaggio di risposta */
+ .form-message {
+     padding: 1rem 1.5rem;
+     border-radius: 10px;
+     margin-top: 1rem;
+     text-align: center;
+     font-weight: 600;
+ }
+
+ .form-message.success {
+     background: rgba(76, 175, 80, 0.2);
+     color: #4CAF50;
+     border: 2px solid rgba(76, 175, 80, 0.5);
+ }
+
+ .form-message.error {
+     background: rgba(244, 67, 54, 0.2);
+     color: #f44336;
+     border: 2px solid rgba(244, 67, 54, 0.5);
+ }
+
+ /* Responsive */
+ @media (max-width: 768px) {
+     .contact-methods {
+         grid-template-columns: 1fr;
+         gap: 1.5rem;
+     }
+
+     .email-form-container {
+         padding: 1.5rem;
+         margin: 0 1rem;
+     }
+
+     .contact-method {
+         padding: 1.5rem;
+     }
+ }
