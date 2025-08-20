@@ -147,7 +147,7 @@ transporter.verify((error, success) => {
 // Route per invio email
 app.post('/send-email', async (req, res) => {
     try {
-        console.log(req)
+        console.log(req.body)
         const { name, email, phone, subject, message, privacy } = req.body;
         
         // Validazione campi obbligatori
