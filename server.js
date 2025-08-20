@@ -26,14 +26,14 @@ const transp = nodemailer.createTransport({
 async function sendProva(){
     console.log('🚀 Inizio invio email di prova...');
     return await transp.sendMail({
-      from: `"Il tuo sito" <tuaemail@gmail.com>`,
+      from: `"Il tuo sito" <igorino80@gmail.com>`,
       to: "igorino80@gmail.com",
       subject:  'Test',
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     });
 }
 
-sendProva().then((res) => {console.log(res)}).catch(err => {})
+sendProva().then((res) => {console.log(res)}).catch(err => console.error("❌ Errore invio:", err));
 
 // Configurazione certificati SSL
 const options = {
