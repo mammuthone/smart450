@@ -28,18 +28,6 @@ const transp = nodemailer.createTransport({
   }   
 });
 
-async function sendProva(){
-    console.log('🚀 Inizio invio email di prova...');
-    return await transp.sendMail({
-      from: `"Il tuo sito" <igorino80@gmail.com>`,
-      to: "igorino80@gmail.com",
-      subject:  'Test',
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    });
-}
-
-sendProva().then((res) => {console.log(res)}).catch(err => console.error("❌ Errore invio:", err));
-
 // Configurazione certificati SSL
 const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/smart450cagliari.ichnusalab.it/privkey.pem'),
@@ -157,13 +145,8 @@ app.use((err, req, res, next) => {
     res.status(500).send('Errore interno del server');
 });
 
-const transporter = nodemailer.createTransport({
-    service: EMAIL_CONFIG.service,
-    auth: EMAIL_CONFIG.auth
-});
-
 // Verifica configurazione email all'avvio
-transporter.verify((error, success) => {
+transp.verify((error, success) => {
     if (error) {
         console.log('❌ Errore configurazione email:', error);
         console.log('💡 Controlla le credenziali email in EMAIL_CONFIG');
@@ -304,8 +287,8 @@ app.post('/send-email', async (req, res) => {
         };
 
         // Invia entrambe le email
-        await transporter.sendMail(ownerMailOptions);
-        await transporter.sendMail(userMailOptions);
+        await transp.sendMail(ownerMailOptions);
+        await transp.sendMail(userMailOptions);
 
         // Log dell'invio
         console.log(`📧 Email inviata da: ${name} (${email}) - Tipo: ${subjectText}`);
