@@ -16,7 +16,7 @@ const __dirname = path.resolve();
 const transp = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 587,
-  secure: true, // true per 465, false per 587
+  secure: false, // true per 465, false per 587
   auth: {
      user: 'igorino80@gmail.com', // CAMBIA CON LA TUA EMAIL
         pass: 'sqhgsvauyuvmjbek' //
