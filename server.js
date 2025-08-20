@@ -12,6 +12,28 @@ const HTTPS_PORT = 443;
 // Percorso assoluto della cartella
 const __dirname = path.resolve();
 
+
+const transp = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // true per 465, false per 587
+  auth: {
+     user: 'igorino80@gmail.com', // CAMBIA CON LA TUA EMAIL
+        pass: 'sqhgsvauyuvmjbek' //
+  }
+});
+
+async function sendProva(){
+    return await transporter.sendMail({
+      from: `"Il tuo sito" <tuaemail@gmail.com>`,
+      to,
+      subject,
+      text
+    });
+}
+
+sendProva().then((res) => {console.log(res)}).catch(err => {})
+
 // Configurazione certificati SSL
 const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/smart450cagliari.ichnusalab.it/privkey.pem'),
