@@ -27,9 +27,9 @@ async function sendProva(){
     console.log('🚀 Inizio invio email di prova...');
     return await transp.sendMail({
       from: `"Il tuo sito" <tuaemail@gmail.com>`,
-      to,
-      subject,
-      text
+      to: "igorino80@gmail.com",
+      subject:  'Test',
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     });
 }
 
