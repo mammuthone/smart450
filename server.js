@@ -20,7 +20,9 @@ const transp = nodemailer.createTransport({
   auth: {
      user: 'igorino80@gmail.com', // CAMBIA CON LA TUA EMAIL
         pass: 'sqhgsvauyuvmjbek' //
-  }
+  },
+  logger: true,   // log generali
+  debug: true   
 });
 
 async function sendProva(){
