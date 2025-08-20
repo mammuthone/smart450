@@ -315,6 +315,80 @@ app.post('/send-email', async (req, res) => {
 });
 
 
+app.post('/send-email-empty', async (req, res) => {
+    console.log('🚀 Inizio elaborazione email (test mode)...');
+    
+    try {
+        console.log('📋 Body ricevuto:', req.body);
+        const { name, email, phone, subject, message, privacy } = req.body;
+        
+        // Validazione campi obbligatori
+        if (!name || !email || !message || !privacy) {
+            console.log('❌ Validazione fallita - campi mancanti');
+            return res.status(400).json({ 
+                error: 'Tutti i campi obbligatori devono essere compilati' 
+            });
+        }
+
+        // Validazione email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            console.log('❌ Validazione email fallita');
+            return res.status(400).json({ 
+                error: 'Formato email non valido' 
+            });
+        }
+
+        console.log('✅ Validazione completata');
+
+        // COMMENTA L'INVIO EMAIL PER TEST
+        console.log('📧 MODALITÀ TEST - Email non inviate');
+        console.log(`Simulando invio email da: ${name} (${email})`);
+
+        // Salva il contatto
+        console.log('💾 Salvataggio contatto...');
+        try {
+            const contactsFile = path.join(__dirname, "contacts.json");
+            let contacts = [];
+            if (fs.existsSync(contactsFile)) {
+                contacts = JSON.parse(fs.readFileSync(contactsFile, "utf8"));
+            }
+            
+            contacts.push({
+                timestamp: new Date().toISOString(),
+                name,
+                email,
+                phone,
+                subject: subject || 'Non specificato',
+                message,
+                ip: req.headers["x-forwarded-for"] || req.socket.remoteAddress
+            });
+            
+            fs.writeFileSync(contactsFile, JSON.stringify(contacts, null, 2));
+            console.log('✅ Contatto salvato');
+        } catch (fileError) {
+            console.error('⚠️ Errore salvataggio file:', fileError.message);
+        }
+
+        console.log('🎉 Invio risposta di successo...');
+        res.json({ 
+            success: true, 
+            message: 'TEST: Messaggio ricevuto! (Email non inviate in modalità test)' 
+        });
+        console.log('✅ Risposta inviata al client');
+
+    } catch (error) {
+        console.error('❌ ERRORE GENERALE:', error);
+        
+        if (!res.headersSent) {
+            res.status(500).json({ 
+                error: 'Errore nell\'elaborazione del messaggio.',
+                details: error.message
+            });
+        }
+    }
+});
+
 // Funzione per controllare se i certificati esistono
 function checkCertificates() {
     try {
