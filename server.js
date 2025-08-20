@@ -20,6 +20,8 @@ const options = {
     key: fs.readFileSync('/etc/letsencrypt/live/smart450cagliari.ichnusalab.it/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/smart450cagliari.ichnusalab.it/fullchain.pem')
 };
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Middleware per loggare gli accessi
 app.use((req, res, next) => {
